@@ -89,6 +89,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
@@ -169,16 +170,34 @@
             price -= option.price;
             /* END ELSE IF: if option is not selected and option is default */
           }
-          /* END LOOP: for each optionId in param.options */
+          /*find element with '.' and '-'. Because classes of the images have same name like labels of the param and option
+          example: '.'[paramId]sauce'-'[optionId]tomato when loop make loop find all selectors and add . and - */
+          const images = document.querySelectorAll('.' + paramId + '-' + optionId);
+          /*if option is selected  */
+          if (optionSelected) {
+            /*find each image in images and add class active */
+            for (let image of images) {
+              image.classList.add(classNames.menuProduct.imageVisible);
+            }
+            /*option isn't selected (just else :D) */
+          } else {
+            /*find each image in images and remove class active */
+            for (let image of images) {
+              image.classList.remove(classNames.menuProduct.imageVisible);
+            }
+
+
+
+            /* END LOOP: for each optionId in param.options */
+          }
+          /* END LOOP: for each paramId in thisProduct.data.params */
         }
-        /* END LOOP: for each paramId in thisProduct.data.params */
+        /* set the contents of thisProduct.priceElem to be the value of variable price */
+        thisProduct.priceElem.innerHTML = price;
       }
-      /* set the contents of thisProduct.priceElem to be the value of variable price */
-      thisProduct.priceElem.innerHTML = price;
+
     }
-
   }
-
 
 
 
