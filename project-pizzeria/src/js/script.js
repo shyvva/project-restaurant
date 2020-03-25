@@ -191,18 +191,17 @@
           }
           /* END LOOP: for each paramId in thisProduct.data.params */
         }
-        /* multiply price by amount */
-        price *= thisProduct.amountWidget.value;
-        /* set the contents of thisProduct.priceElem to be the value of variable price */
-        thisProduct.priceElem.innerHTML = price;
       }
-
+      /* multiply price by amount */
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
+      price *= thisProduct.amountWidget.value;
+      thisProduct.priceElem.innerHTML = price;
     }
 
     initAmountWidget() {
       const thisProduct = this;
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-      thisProduct.amountWidgetElem.addEventListener('updated', function() {
+      thisProduct.amountWidgetElem.addEventListener('updated', function () {
         thisProduct.processOrder();
       });
     }
@@ -236,8 +235,8 @@
       const newValue = parseInt(value);
 
       /* TODO: Add validation */
-      /*if new value is >= and <= default value min (1) max (9) set value  */
-      if (newValue >= settings.amountWidget.defaultMin  && newValue <= settings.amountWidget.defaultMax) {
+      /*in first line of if checked if the value changes(is different) new value is >= and <= default value min (1) max (9) set value  */
+      if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
 
         thisWidget.value = newValue;
         this.announce();
@@ -264,7 +263,7 @@
       });
     }
 
-    announce(){
+    announce() {
       const thisWidget = this;
 
       const event = new Event('updated');
