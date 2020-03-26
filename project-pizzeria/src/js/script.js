@@ -172,8 +172,7 @@
             price -= option.price;
             /* END ELSE IF: if option is not selected and option is default */
           }
-          /*find element with '.' and '-'. Because classes of the images have same name like labels of the param and option
-          example: '.'[paramId]sauce'-'[optionId]tomato when loop make loop find all selectors and add . and - */
+          /*find element with '.' and '-'. Because classes of the images have same name like keys in params and options in data.js*/
           const images = document.querySelectorAll('.' + paramId + '-' + optionId);
           /*if option is selected  */
           if (optionSelected) {

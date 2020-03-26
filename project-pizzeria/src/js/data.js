@@ -112,4 +112,24 @@ dataSource.products = {
     },
   },
 
+  soup: {
+    name: 'Ramen Soup',
+    price: 10,
+    description: 'Ramen soup is generally made from stock based on chicken or pork, combined with a variety of ingredients such as kombu (kelp), katsuobushi (skipjack tuna flakes), niboshi (dried baby sardines), beef bones, pork bones, shiitake, and onions.',
+    images: [
+      '<img class ="active soups-beef" src="images/soup/beef-ramen.png">',
+      '<img class ="soups-seaFood" src="images/soup/sea-food-ramen.png">',
+    ],
+    params: {
+      soups: {
+        label: 'ramen soup',
+        type: 'checkboxes',
+        options: {
+          beef: {label:'Beef Ramen', price: 10, default: true},
+          seaFood : {label: 'Sea Food', price: 12},
+        }
+      }
+    }
+  }
+
 };
