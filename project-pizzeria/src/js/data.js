@@ -3,7 +3,7 @@ const dataSource = {}; // eslint-disable-line no-unused-vars
 dataSource.products = {
   cake: {
     class: 'small',
-    name: 'Zio Stefano\'s Doughnut',
+    name: 'Doughnut',
     price: 9,
     description: 'Treat yourself with this soft, freshly baked cookie. The recipe has been handed down from generation to generation in our family and it has won us several first place prizes in local competitions.',
     images: [
@@ -12,7 +12,7 @@ dataSource.products = {
   },
   breakfast: {
     class: 'small',
-    name: 'Zia Giulia\'s Breakfast',
+    name: 'Breakfast',
     price: 9,
     description: 'There\'s no better way to start your day than indulging yourself with a cup of fresh Italian coffee and crispy waffels. Made just for you on the spot, this breakfast combo has been our guests\' favorite for over 50 years.',
     images: [
@@ -23,16 +23,16 @@ dataSource.products = {
         label: 'Coffee type',
         type: 'radios',
         options: {
-          latte: {label: 'Latte', price: 1, default: true},
-          cappuccino: {label: 'Cappuccino', price: 1},
-          espresso: {label: 'Espresso', price: 1},
-          macchiato : {label: 'Macchiato ', price: 1},
+          latte: { label: 'Latte', price: 1, default: true },
+          cappuccino: { label: 'Cappuccino', price: 1 },
+          espresso: { label: 'Espresso', price: 1 },
+          macchiato: { label: 'Macchiato ', price: 1 },
         },
       },
     },
   },
   pizza: {
-    name: 'Nonna Alba\'s Pizza',
+    name: 'Pizza',
     price: 20,
     description: 'The true taste of Italy &ndash; homemade pizza as prepared by our grandmothers in old-fashoned brick ovens. Choose your favorite topping and enjoy your comfort food! All ingredients come straight from eco-friendly, trusted farms in the Italian countryside.',
     images: [
@@ -51,38 +51,38 @@ dataSource.products = {
         label: 'Sauce',
         type: 'radios',
         options: {
-          tomato: {label: 'Tomato', price: 0, default: true},
-          cream: {label: 'Sour cream', price: 2},
+          tomato: { label: 'Tomato', price: 0, default: true },
+          cream: { label: 'Sour cream', price: 2 },
         },
       },
       toppings: {
         label: 'Toppings',
         type: 'checkboxes',
         options: {
-          olives: {label: 'Olives', price: 2, default: true},
-          redPeppers: {label: 'Red peppers', price: 2, default: true},
-          greenPeppers: {label: 'Green peppers', price: 2, default: true},
-          mushrooms: {label: 'Mushrooms', price: 2, default: true},
-          basil: {label: 'Fresh basil', price: 2, default: true},
-          salami: {label: 'Salami', price: 3},
+          olives: { label: 'Olives', price: 2, default: true },
+          redPeppers: { label: 'Red peppers', price: 2, default: true },
+          greenPeppers: { label: 'Green peppers', price: 2, default: true },
+          mushrooms: { label: 'Mushrooms', price: 2, default: true },
+          basil: { label: 'Fresh basil', price: 2, default: true },
+          salami: { label: 'Salami', price: 3 },
         },
       },
       crust: {
         label: 'pizza crust',
         type: 'select',
         options: {
-          standard: {label: 'standard', price: 0, default: true},
-          thin: {label: 'thin', price: 2},
-          thick: {label: 'thick', price: 2},
-          cheese: {label: 'cheese in edges', price: 5},
-          wholewheat: {label: 'wholewheat', price: 3},
-          gluten: {label: 'with extra gluten', price: 0},
+          standard: { label: 'standard', price: 0, default: true },
+          thin: { label: 'thin', price: 2 },
+          thick: { label: 'thick', price: 2 },
+          cheese: { label: 'cheese in edges', price: 5 },
+          wholewheat: { label: 'wholewheat', price: 3 },
+          gluten: { label: 'with extra gluten', price: 0 },
         },
       },
     },
   },
   salad: {
-    name: 'Nonno Alberto\'s Salad',
+    name: 'Salad',
     price: 9,
     description: 'A delicious salad made of fresh, home-grown products on a crispy lettuce base.',
     images: [
@@ -100,13 +100,13 @@ dataSource.products = {
         label: 'Ingredients',
         type: 'checkboxes',
         options: {
-          cucumber: {label: 'Cucumber', price: 1, default: true},
-          tomatoes: {label: 'Tomatoes', price: 1, default: true},
-          olives: {label: 'Olives', price: 1, default: true},
-          feta: {label: 'Feta cheese', price: 1},
-          cheese: {label: 'Cheese', price: 1},
-          herbs: {label: 'Fresh herbs', price: 1, default: true},
-          pepper: {label: 'Black pepper', price: 1},
+          cucumber: { label: 'Cucumber', price: 1, default: true },
+          tomatoes: { label: 'Tomatoes', price: 1, default: true },
+          olives: { label: 'Olives', price: 1, default: true },
+          feta: { label: 'Feta cheese', price: 1 },
+          cheese: { label: 'Cheese', price: 1 },
+          herbs: { label: 'Fresh herbs', price: 1, default: true },
+          pepper: { label: 'Black pepper', price: 1 },
         },
       },
     },
@@ -114,19 +114,49 @@ dataSource.products = {
 
   soup: {
     name: 'Ramen Soup',
-    price: 10,
+    price: 14,
     description: 'Ramen soup is generally made from stock based on chicken or pork, combined with a variety of ingredients such as kombu (kelp), katsuobushi (skipjack tuna flakes), niboshi (dried baby sardines), beef bones, pork bones, shiitake, and onions.',
     images: [
       '<img class ="active soups-beef" src="images/soup/beef-ramen.png">',
       '<img class ="soups-seaFood" src="images/soup/sea-food-ramen.png">',
+      '<img class ="soups-chickenNoodle" src="images/soup/chicken-noodle.png">',
+      '<img class ="soups-porkRamen" src="images/soup/pork-ramen.png">',
     ],
     params: {
       soups: {
         label: 'ramen soup',
-        type: 'checkboxes',
+        type: 'radios',
         options: {
-          beef: {label:'Beef Ramen', price: 10, default: true},
-          seaFood : {label: 'Sea Food', price: 12},
+          beef: { label: 'Beef Ramen', price: 14, default: true },
+          seaFood: { label: 'Sea Food Noodle', price: 15 },
+          chickenNoodle: { label: 'Chicken Noodle', price: 12 },
+          porkRamen: { label: 'Pork Ramen', price: 13 },
+        },
+      },
+    },
+  },
+
+  sushi: {
+    name: 'Sushi',
+    price: 30,
+    description: 'a Japanese dish consisting of small balls or rolls of vinegar-flavoured cold rice served with a garnish of vegetables, egg, or raw seafood.',
+    images: [
+      '<img class ="rolls-sushiPlate" src="images/sushi/sushi-plate.png">',
+      '<img class ="rolls-makiPlate" src="images/sushi/maki-plate.png">',
+      '<img class ="rolls-maki" src="images/sushi/maki.png">',
+      '<img class ="rolls-nigiriPlate" src="images/sushi/nigiri-plate.png">',
+      '<img class ="rolls-nigiri" src="images/sushi/nigiri.png">',
+    ],
+    params: {
+      rolls: {
+        label: 'shushi',
+        type: 'radios',
+        options: {
+          sushiPlate: { label: 'Sushi Plate 15 pics mixed rolls', price: 30, default: true},
+          makiPlate : { label: 'Maki Plate 15 pics' , price: 28},
+          maki : { label: 'Makizushi 5 pics' , price: 9},
+          nigiriPlate : { label: 'Nigiri plate 15 pics', price: 35},
+          nigiri : { label: 'Nigiri 5 pics', price : 13},
         }
       }
     }
