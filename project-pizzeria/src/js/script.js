@@ -27,12 +27,12 @@
     },
     widgets: {
       amount: {
-        input: 'input.amount', // CODE CHANGED
+        input: 'input.amount',
         linkDecrease: 'a[href="#less"]',
         linkIncrease: 'a[href="#more"]',
       },
     },
-    // CODE ADDED START
+
     cart: {
       productList: '.cart__order-summary',
       toggleTrigger: '.cart__summary',
@@ -51,7 +51,7 @@
       edit: '[href="#edit"]',
       remove: '[href="#remove"]',
     },
-    // CODE ADDED END
+
   };
 
   const classNames = {
@@ -83,9 +83,8 @@
 
   const templates = {
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
-    // CODE ADDED START
     cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
-    // CODE ADDED END
+
   };
 
   class Product {
@@ -560,14 +559,13 @@
       const thisCartProduct = this;
 
       const getProductData = {
-        OrderedItem: {
-          id: thisCartProduct.id,
-          amount: thisCartProduct.amount,
-          price: thisCartProduct.price,
-          priceSingle: thisCartProduct.priceSingle,
-          params: thisCartProduct.params
-        }
+        id: thisCartProduct.id,
+        amount: thisCartProduct.amount,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        params: thisCartProduct.params
       };
+
       return getProductData;
     }
 
