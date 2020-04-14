@@ -1,4 +1,4 @@
-
+/* global rangeSlider */
 import BaseWidget from './BaseWidget.js';
 import { settings, select } from '../settings.js';
 import utils from '../utils.js';
@@ -40,8 +40,8 @@ class HourPicker extends BaseWidget {
   }
 
   renderValue() {
-    const thisHourPickerWidgetWidget = this;
-    thisHourPickerWidgetWidget.dom.output.innerHTML = thisHourPickerWidgetWidget.value;
+    const thisHourPickerWidget = this;
+    thisHourPickerWidget.dom.output.innerHTML = thisHourPickerWidget.value;
   }
 }
 
