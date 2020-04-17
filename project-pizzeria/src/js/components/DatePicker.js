@@ -36,10 +36,24 @@ class DatePicker extends BaseWidget {
           return (date.getDay() === 1);
         }
       ],
-      onChange: function (dateToStr) {
+      onChange: function (dates ,dateToStr) {
         thisDatePicker.value = dateToStr;
       },
     });
+  }
+
+  parseValue(value) {
+    return (value);
+  }
+
+  isValid(value) {
+    return(value);
+  }
+
+  renderValue() {
+    const thisWidget = this;
+
+    thisWidget.dom.input.value = thisWidget.value;
   }
 }
 
