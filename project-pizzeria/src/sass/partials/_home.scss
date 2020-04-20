@@ -1,0 +1,192 @@
+/* Global */
+.home-page-wrapper {
+  margin: 30px auto;
+  padding: 48px 36px;
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+section {
+  padding-bottom: 50px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Nav */
+.box {
+  flex: 0 0 50%;
+  height: 110px;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  display: unset;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius;
+  }
+
+  figcaption {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: $color-light;
+
+    h1{
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translate3d(0, -50%, 0);
+      margin: 0;
+    }
+
+    p {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 24px;
+      width: 100%;
+      transform: translate3d(0, 20px, 0);
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.box-order {
+  padding-right: 5px;
+}
+
+.box-bottom {
+  flex: 0 0 100%;
+  height: 110px;
+  position: relative;
+  margin-top: 5px;
+  background: $color-main;
+  border-radius: $radius;
+
+  .open {
+    @include center;
+    text-align: center;
+    color: $color-light;
+
+    h1 {
+      margin: 0;
+    }
+
+    p {
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+}
+
+/* Opinions */
+.opinions-image {
+  flex: 1;
+  width: 160px;
+  min-height: 160px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $radius;
+  }
+}
+
+.main-carousel {
+  flex: 2;
+  min-height: 160px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.carousel-cell {
+  width: 100%;
+  padding-left: 5%;
+  padding-bottom: auto;
+}
+
+/* Gallery */
+.gallery {
+  padding-bottom: 20px;
+}
+
+.image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-image {
+  height: 160px;
+  flex: 0 0 31.5%;
+  margin: 3px 4px;
+  position: relative;
+  z-index: 0;
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: $radius;
+    object-fit: cover;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: $color-dark;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    border-radius: $radius;
+    display: none;
+  }
+
+  &:hover .overlay,
+  &:hover::after {
+    display: block;
+  }
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  @include center;
+  display: none;
+
+  a {
+    color: $color-light;
+    text-decoration: none;
+    margin-right: 10px;
+
+    i {
+      font-size: 20px;
+
+      &:hover {
+        color: $color-main;
+      }
+    }
+  }
+}
+
+footer a {
+  color: $color-main;
+}

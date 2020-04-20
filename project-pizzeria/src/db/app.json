@@ -344,5 +344,44 @@
       "ppl": 3,
       "starters": ["water"]
     }
+  ],
+
+  "gallery": [
+    {
+      "id": 1,
+      "title": "image_1",
+      "alt": "image_1",
+      "source": "images/home/pizza-4.jpg"
+    },
+    {
+      "id": 2,
+      "title": "image_2",
+      "alt": "image_2",
+      "source": "images/home/pizza-5.jpg"
+    },
+    {
+      "id": 3,
+      "title": "image_3",
+      "alt": "image_3",
+      "source": "images/home/pizza-6.jpg"
+    },
+    {
+      "id": 4,
+      "title": "image_4",
+      "alt": "image_4",
+      "source": "images/home/pizza-7.jpg"
+    },
+    {
+      "id": 5,
+      "title": "image_5",
+      "alt": "image_5",
+      "source": "images/home/pizza-8.jpg"
+    },
+    {
+      "id": 6,
+      "title": "image_6",
+      "alt": "image_6",
+      "source": "images/home/pizza-9.jpg"
+    }
   ]
 }

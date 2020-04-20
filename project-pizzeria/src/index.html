@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/flickity.min.css">
 </head>
+
 <body>
 
   <header class="header">
@@ -21,6 +27,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -62,6 +69,102 @@
   </header>
 
   <div id="pages">
+
+    <section id="home">
+      <div class="home-page-wrapper container"></div>
+    </section>
+    <section id="order">
+      <div id="product-list" class="product-list container"></div>
+    </section>
+    <section id="booking">
+      <div class="booking-wrapper container"></div>
+    </section>
+  </div>
+
+  <script id="template-home-wrapper" type="text/x-handlebars-template">
+    <div class="home-wrapper">
+      <section class="home-nav">
+        <div class="row">
+          <figure class="box box-order">
+            <img src="images/home/pizza-1.jpg" alt="">
+            <figcaption>
+              <h1 class="h1">Order online</h1>
+              <p>Delicious food deliverd to your door</p>
+              <a href="#order"></a>
+            </figcaption>
+          </figure>
+          <figure class="box">
+            <img src="images/home/pizza-2.jpg" alt="">
+            <figcaption>
+              <h1 class="h1">Book a table</h1>
+              <p>Delicious food deliverd to your door</p>
+              <a href="#booking"></a>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="row">
+          <div class="box-bottom">
+            <div class="open">
+              <h1 class="h1">Opening hours:</h1>
+              <p>tue - sun, 12am - 12pm</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="opinions">
+        <div class="row">
+          <div class="opinions-image">
+            <img src="images/home/pizza-3.jpg" alt="">
+          </div>
+          <div class="main-carousel">
+            <div class="carousel-cell">
+              <div class="carousel-text">
+                <h2 class="h2">Amazing service!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit erat, luctus ac risus et, feugiat blandit erat. Suspendisse eros velit, pharetra a maximus ornare, vulputate a purus.</p>
+                <p> - <em>Margaret Osborne</em></p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="carousel-text">
+                <h2 class="h2">Best pizza ever!</h2>
+                <p>Fusce et arcu mauris. Aliquam ultrices nec mi et venenatis. Nam ac diam sit amet dolor accumsan faucibus. Sed cursus laoreet iaculis. Mauris vitae felis sagittis tellus dictum fermentum non non dolor.</p>
+                <p> - <em>Han Solo</em></p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="carousel-text">
+                <h2 class="h2">Italian Food</h2>
+                <p>Duis velit erat, luctus ac risus et, feugiat blandit erat. Suspendisse eros velit, pharetra a maximus ornare, vulputate a purus.</p>
+                <p> - <em>Rick and Morty</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gallery">
+          <div class="gallery-wrapper"></div>
+      </section>
+      <footer><a href="#">View more on Instagram</a></footer>
+    </div>
+  </script>
+
+  <script id="template-gallery-item" type="text/x-handlebars-template">
+    <div class="image-wrapper">
+      {{#each image}}
+      <div class="gallery-image">
+        <img src="{{source}}" alt="{{alt}}" title="{{title}}">
+        <div class="overlay">
+          <a href="#"><i class="fas fa-share-alt"></i></a>
+          <a href="#"><i class="fas fa-heart"></i></a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </script>
+
+
+
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -260,6 +363,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="./vendor/range-slider.min.js"></script>
+  <script src="vendor/flickity.pkgd.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
+
 </html>
