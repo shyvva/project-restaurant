@@ -163,6 +163,7 @@ section {
   &:hover .overlay,
   &:hover::after {
     display: block;
+
   }
 }
 
@@ -182,6 +183,7 @@ section {
 
       &:hover {
         color: $color-main;
+        transition: 1s all;
       }
     }
   }
