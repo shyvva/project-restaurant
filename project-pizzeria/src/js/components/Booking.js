@@ -281,7 +281,7 @@ class Booking {
     /* Actions to be executed after clicking submit button */
     thisBooking.dom.bookingForm.addEventListener('submit', function (event) {
       event.preventDefault();
-      /*set reservedTable null property to prevent booked table after deselect*/
+      /*set reservedTable null property to prevent book a table after deselect*/
       thisBooking.reservedTable = null;
       if (!thisBooking.reservedTable) {
         return alert('Please choose a table');
