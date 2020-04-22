@@ -49,13 +49,13 @@ class Home {
     const thisHome = this;
 
     const makeObject = Object.assign({}, thisHome.data.images);
-    console.log('makeObject', makeObject);
+    //console.log('makeObject', makeObject);
 
     const allImages = { image: makeObject };
-    console.log('allImages', allImages);
+    //console.log('allImages', allImages);
 
     const generatedHTML = templates.gallery(allImages);
-    console.log(generatedHTML);
+    //console.log(generatedHTML);
 
     thisHome.element = utils.createDOMFromHTML(generatedHTML);
 

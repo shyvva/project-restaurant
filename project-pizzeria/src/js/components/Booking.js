@@ -192,7 +192,6 @@ class Booking {
         const allReservedTables = document.querySelectorAll(select.booking.tablesReserved);
         /* This code prevents selecting multiple tables */
         for (let reservedTable of allReservedTables) {
-
           if (reservedTable !== table) {
             reservedTable.classList.remove(classNames.booking.tableReserved);
           }
@@ -282,7 +281,8 @@ class Booking {
     /* Actions to be executed after clicking submit button */
     thisBooking.dom.bookingForm.addEventListener('submit', function (event) {
       event.preventDefault();
-
+      /*set reservedTable null property to prevent booked table after deselect*/
+      thisBooking.reservedTable = null;
       if (!thisBooking.reservedTable) {
         return alert('Please choose a table');
       } else if (!thisBooking.dom.phone.value) {
