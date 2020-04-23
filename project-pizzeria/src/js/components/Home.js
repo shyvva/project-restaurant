@@ -14,7 +14,7 @@ class Home {
 
     /* generate HTML based on template */
     const generatedHTML = templates.home();
-    console.log(generatedHTML);
+    // console.log(generatedHTML);
     /* create element using utils.createElementFromHTML */
     thisHome.element = utils.createDOMFromHTML(generatedHTML);
 
@@ -37,7 +37,7 @@ class Home {
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        console.log('parsedResponse', parsedResponse);
+        // console.log('parsedResponse', parsedResponse);
         thisHome.data.images = parsedResponse;
 
         thisHome.renderGallery();
