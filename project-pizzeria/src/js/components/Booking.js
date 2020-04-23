@@ -138,68 +138,38 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    thisBooking.colorSlider();
+    thisBooking.sliderColor();
   }
 
-  colorSlider(){
+  sliderColor() {
     const thisBooking = this;
 
-    const slots = document.querySelectorAll('.rangeSlider__slot');
-    // console.log('slots: ', slots);
-    const slotsArray = Array.from(slots);
-    // console.log('slotsArray: ', slotsArray);
+    const bookedHours = thisBooking.booked[thisBooking.date];
+    const sliderColors = [];
 
-    const thisDate = document.querySelector('.flatpickr-input');
-    const thisDateToday = thisDate.value;
+    thisBooking.dom.rangeSlider = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.slider);
 
-    for (let i=0; i<=23; i+=1) {
-      const hour = (12 + 0.5*i) ;
-      // console.log('hour: ', hour);
-      if(typeof thisBooking.booked[thisDateToday][hour] == 'undefined') {
-        if (slotsArray[i].classList.contains('busy')){
-          slotsArray[i].classList.remove('busy');
-          slotsArray[i].classList.add('empty');
-        } else if (slotsArray[i].classList.contains('medium')){
-          slotsArray[i].classList.remove('medium');
-          slotsArray[i].classList.add('empty');
-        } else {
-          slotsArray[i].classList.add('empty');
-        }
-      } else if (thisBooking.booked[thisDateToday][hour].length == 3) {
-        // console.log('all tables are occupied');
-        if (slotsArray[i].classList.contains('empty')){
-          slotsArray[i].classList.remove('empty');
-          slotsArray[i].classList.add('busy');
-        } else if (slotsArray[i].classList.contains('medium')){
-          slotsArray[i].classList.remove('medium');
-          slotsArray[i].classList.add('busy');
-        } else {
-          slotsArray[i].classList.add('busy');
-        }
-      } else if (thisBooking.booked[thisDateToday][hour].length == 2) {
-        // console.log('only one table is empty');
-        if (slotsArray[i].classList.contains('empty')){
-          slotsArray[i].classList.remove('empty');
-          slotsArray[i].classList.add('medium');
-        } else if (slotsArray[i].classList.contains('busy')){
-          slotsArray[i].classList.remove('busy');
-          slotsArray[i].classList.add('medium');
-        } else {
-          slotsArray[i].classList.add('medium');
-        }
-      } else if (thisBooking.booked[thisDateToday][hour].length == 1) {
-        // console.log('two tables are empty');
-        if (slotsArray[i].classList.contains('busy')){
-          slotsArray[i].classList.remove('busy');
-          slotsArray[i].classList.add('empty');
-        } else if (slotsArray[i].classList.contains('medium')){
-          slotsArray[i].classList.remove('medium');
-          slotsArray[i].classList.add('empty');
-        } else {
-          slotsArray[i].classList.add('empty');
-        }
+    const slider = thisBooking.dom.rangeSlider;
+
+    for (let bookedHour in bookedHours) {
+      const firstInterval = ((bookedHour - 12) * 100) / 12;
+      const secondInterval = (((bookedHour - 12) + .5) * 100) / 12;
+      //everyone
+      if (bookedHours[bookedHour].length <= 1) {
+        sliderColors.push('/*' + bookedHour + '*/#009432 ' + firstInterval + '%, #009432 ' + secondInterval + '%');
+      }
+      //only one
+      else if (bookedHours[bookedHour].length === 2) {
+        sliderColors.push('/*' + bookedHour + '*/#FFC312 ' + firstInterval + '%, #FFC312 ' + secondInterval + '% ');
+      }
+      //no booked
+      else if (bookedHours[bookedHour].length === 3) {
+        sliderColors.push('/*' + bookedHour + '*/#EA2027 ' + firstInterval + '%, #EA2027 ' + secondInterval + '%');
       }
     }
+    sliderColors.sort();
+    const greenOrangeRedString = sliderColors.join();
+    slider.style.background = 'linear-gradient(to right, ' + greenOrangeRedString + ')';
   }
 
   makeReserved() {

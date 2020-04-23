@@ -6,19 +6,16 @@ $color-main: #ff6b6b;
 $color-warning: #f6b93b;
 $color-danger: #e55039;
 $color-success: #78e08f;
-$color-slider-empty: green;
-$color-slider-medium: orange;
-$color-slider-busy: red;
 
-$font-header: 'Oswald', sans-serif;
-$font-text: 'Lato', sans-serif;
+$font-header: "Oswald", sans-serif;
+$font-text: "Lato", sans-serif;
 
 $font-light: 300;
 $font-normal: 400;
 $font-semibold: 500;
 $font-bold: 700;
 
-$transition: all .3s;
+$transition: all 0.3s;
 $radius: 4px;
 
 $base-size: 12px;
@@ -44,7 +41,8 @@ $base-size: 12px;
   }
 
   // CODE ADDED START
-  &.disabled, &[disabled] {
+  &.disabled,
+  &[disabled] {
     background: desaturate($btn-bg, 100%);
     border-color: desaturate($btn-border, 100%);
     cursor: not-allowed;
