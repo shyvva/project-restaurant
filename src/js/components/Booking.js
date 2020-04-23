@@ -153,7 +153,7 @@ class Booking {
 
     for (let bookedHour in bookedHours) {
       const firstInterval = ((bookedHour - 12) * 100) / 12;
-      const secondInterval = (((bookedHour - 12) + .5) * 100) / 12;
+      const secondInterval = (((bookedHour - 12) * 100) + .5) / 12;
       //everyone
       if (bookedHours[bookedHour].length <= 1) {
         sliderColors.push('/*' + bookedHour + '*/#009432 ' + firstInterval + '%, #009432 ' + secondInterval + '%');
@@ -181,18 +181,17 @@ class Booking {
       table.addEventListener('click', function (event) {
         event.preventDefault();
 
-        const tableId = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
-        if (tableId === thisBooking.reservedTable) {
-          thisBooking.reservedTable = null;
-        } else {
-          thisBooking.reservedTable = tableId;
-        }
 
         if (!table.classList.contains(classNames.booking.tableBooked)) {
 
           table.classList.toggle(classNames.booking.tableReserved);
 
-          thisBooking.reservedTable = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
+          const tableId = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
+          if (tableId === thisBooking.reservedTable) {
+            thisBooking.reservedTable = null;
+          } else {
+            thisBooking.reservedTable = tableId;
+          }
 
         } else {
           return alert('This table is not available');
@@ -208,17 +207,11 @@ class Booking {
       });
 
       thisBooking.dom.datePicker.addEventListener('updated', function () {
-        if (table.classList.remove(classNames.booking.tableReserved)) {
-          thisBooking.reservedTable = null;
-        }
+        table.classList.remove(classNames.booking.tableReserved);
       });
 
       thisBooking.dom.hourPicker.addEventListener('updated', function () {
-        if (table.classList.remove(classNames.booking.tableReserved)) {
-          thisBooking.reservedTable = null;
-        }
-
-
+        table.classList.remove(classNames.booking.tableReserved);
       });
     }
 
