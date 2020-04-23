@@ -153,7 +153,7 @@ class Booking {
 
     for (let bookedHour in bookedHours) {
       const firstInterval = ((bookedHour - 12) * 100) / 12;
-      const secondInterval = (((bookedHour - 12) * 0.5) * 100) / 12;
+      const secondInterval = (((bookedHour - 12) + 0.5) * 100) / 12;
       //everyone
       if (bookedHours[bookedHour].length <= 1) {
         sliderColors.push('/*' + bookedHour + '*/#009432 ' + firstInterval + '%, #009432 ' + secondInterval + '%');
