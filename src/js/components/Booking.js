@@ -97,7 +97,6 @@ class Booking {
     /* convert selected start hour - e.g. 12:30 from API - to number we need in thisBooking.booked object - 12.5 */
     const startHour = utils.hourToNumber(hour);
 
-
     for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
       if (typeof thisBooking.booked[date][hourBlock] == 'undefined') {
         thisBooking.booked[date][hourBlock] = [];
@@ -138,10 +137,10 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
-    thisBooking.sliderColor();
+    thisBooking.colorRangeSliderDependingOnReservedTable();
   }
 
-  sliderColor() {
+  colorRangeSliderDependingOnReservedTable() {
     const thisBooking = this;
 
     const bookedHours = thisBooking.booked[thisBooking.date];
@@ -181,7 +180,6 @@ class Booking {
       table.addEventListener('click', function (event) {
         event.preventDefault();
 
-
         if (!table.classList.contains(classNames.booking.tableBooked)) {
 
           table.classList.toggle(classNames.booking.tableReserved);
@@ -208,10 +206,12 @@ class Booking {
 
       thisBooking.dom.datePicker.addEventListener('updated', function () {
         table.classList.remove(classNames.booking.tableReserved);
+        thisBooking.reservedTable = null;
       });
 
       thisBooking.dom.hourPicker.addEventListener('updated', function () {
         table.classList.remove(classNames.booking.tableReserved);
+        thisBooking.reservedTable = null;
       });
     }
 
@@ -230,13 +230,10 @@ class Booking {
     }
   }
 
-
   sendBooking() {
     const thisBooking = this;
 
-
     const url = settings.db.url + '/' + settings.db.booking;
-
 
     const reservation = {
       id: '',
@@ -249,8 +246,6 @@ class Booking {
       address: thisBooking.dom.address.value,
       starters: thisBooking.starters,
     };
-
-
 
     const options = {
       method: 'POST',
@@ -272,7 +267,6 @@ class Booking {
 
     return alert('Selected table has been successfully booked!');
   }
-
 
   refreshTable() {
     const thisBooking = this;
@@ -300,7 +294,6 @@ class Booking {
 
       thisBooking.sendBooking();
       thisBooking.refreshTable();
-      thisBooking.dom.bookingForm.reset();
     });
   }
 
@@ -322,6 +315,7 @@ class Booking {
     thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(select.booking.address);
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
   }
+
   initWidgets() {
     const thisBooking = this;
 
